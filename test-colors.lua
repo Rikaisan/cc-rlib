@@ -1,4 +1,7 @@
--- This is a program to print the color palette of your terminal/monitor
+-- This is a program to print the color palette of your terminal/monitors
+-- usage: test-colors [monitors]
+-- example: test-colors left right
+-- Will test the current terminal colors if no monitors are provided
 
 COLOR_NAMES = {
     "white",
