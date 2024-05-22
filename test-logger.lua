@@ -20,10 +20,13 @@ local logger = require("modules.logger.peripheral")
 
 for _, side in ipairs(SIDES) do
     if peripheral.hasType(side, "monitor") then
-        peripheral.call(side, "setCursorPos", 1, 1)
-        peripheral.call(side, "setTextScale", 0.5)
-        peripheral.call(side, "setCursorBlink", false)
-        peripheral.call(side, "clear")
+        local monitor = peripheral.wrap(side)
+        monitor.setCursorPos(1, 1)
+        monitor.setTextScale(0.5)
+        monitor.setCursorBlink(false)
+        monitor.setBackgroundColor(colors.black)
+        monitor.clear()
+
         logger.debug(side, "This is a debug message!")
         logger.error(side, "This is an error message!")
         logger.warn(side, "This is a warning message!")

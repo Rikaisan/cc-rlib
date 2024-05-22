@@ -29,10 +29,12 @@ if #ARGS > 0 then
 
     for _, id in ipairs(ARGS) do
         if peripheral.hasType(id, "monitor") then
-            peripheral.call(id, "setCursorPos", 1, 1)
-            peripheral.call(id, "setTextScale", 0.5)
-            peripheral.call(id, "setCursorBlink", false)
-            peripheral.call(id, "clear")
+            local monitor = peripheral.wrap(id)
+            monitor.setCursorPos(1, 1)
+            monitor.setTextScale(0.5)
+            monitor.setCursorBlink(false)
+            monitor.setBackgroundColor(colors.black)
+            monitor.clear()
             for _, name in ipairs(COLOR_NAMES) do
                 peripheral_logger.custom(id, name, colors[name], name)
             end
