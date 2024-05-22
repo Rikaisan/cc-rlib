@@ -28,7 +28,7 @@ if #ARGS > 0 then
     local peripheral_logger = require("modules.logger.peripheral")
 
     for _, id in ipairs(ARGS) do
-        if peripheral.getType(id) == "monitor" then
+        if peripheral.hasType(id, "monitor") then
             peripheral.call(id, "setCursorPos", 1, 1)
             peripheral.call(id, "setTextScale", 0.5)
             peripheral.call(id, "setCursorBlink", false)

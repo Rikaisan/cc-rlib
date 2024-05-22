@@ -8,7 +8,7 @@ local catppuccin = require("modules.catppuccin")
 
 if #ARGS > 0 then
     for _, id in ipairs(ARGS) do
-        if peripheral.getType(id) == "monitor" then
+        if peripheral.hasType(id, "monitor") then
             catppuccin.applyToMonitor(id)
         end
     end

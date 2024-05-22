@@ -9,7 +9,7 @@ if #ARGS > 0 then
         local catppuccin = require("modules.catppuccin")
         catppuccin.applyHere()
         for _, side in ipairs(SIDES) do
-            if peripheral.getType(side) == "monitor" then
+            if peripheral.hasType(side, "monitor") then
                 catppuccin.applyToMonitor(side)
             end
         end
@@ -19,7 +19,7 @@ end
 local logger = require("modules.logger.peripheral")
 
 for _, side in ipairs(SIDES) do
-    if peripheral.getType(side) == "monitor" then
+    if peripheral.hasType(side, "monitor") then
         peripheral.call(side, "setCursorPos", 1, 1)
         peripheral.call(side, "setTextScale", 0.5)
         peripheral.call(side, "setCursorBlink", false)
