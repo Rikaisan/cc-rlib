@@ -22,7 +22,7 @@ for _, side in ipairs(SIDES) do
     if peripheral.getType(side) == "monitor" then
         peripheral.call(side, "setCursorPos", 1, 1)
         peripheral.call(side, "setTextScale", 0.5)
-        peripheral.call(side, "setCursorBlink", true)
+        peripheral.call(side, "setCursorBlink", false)
         peripheral.call(side, "clear")
         logger.debug(side, "This is a debug message!")
         logger.error(side, "This is an error message!")
