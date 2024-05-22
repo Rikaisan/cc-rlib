@@ -2,11 +2,22 @@ if APP_NAME == nil then
     APP_NAME = "App"
 end
 
+local function normalizeScreen(monitor)
+    local _, monitor_height = peripheral.call(monitor, "getSize")
+    local _, current_y = peripheral.call(monitor, "getCursorPos")
+
+    if current_y > monitor_height then
+        peripheral.call(monitor, "scroll", current_y - monitor_height)
+        peripheral.call(monitor, "setCursorPos", 1, monitor_height)
+    end
+end
+
 local function logRaw(monitor, message)
+    local _, current_y = peripheral.call(monitor, "getCursorPos")
     peripheral.call(monitor, "setTextColor", colors.white)
     peripheral.call(monitor, "write", message)
-    local _, current_y = peripheral.call(monitor, "getCursorPos")
     peripheral.call(monitor, "setCursorPos", 1, current_y + 1)
+    normalizeScreen(monitor)
 end
 
 local function log(monitor, prefix, color, message)
