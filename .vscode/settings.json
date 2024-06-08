@@ -1,23 +1,24 @@
 {
+    "Lua.runtime.version": "Lua 5.3",
     "Lua.diagnostics.globals": [
-        "_G",
+        "bit",
         "colors",
         "colours",
+        "commands",
         "disk",
         "fs",
         "gps",
         "help",
         "http",
-        "io",
         "keys",
         "multishell",
-        "os",
         "paintutils",
         "parallel",
         "peripheral",
         "pocket",
         "rednet",
         "redstone",
+        "rs",
         "settings",
         "shell",
         "term",
@@ -25,5 +26,20 @@
         "turtle",
         "vector",
         "window",
-    ]
+        "_CC_DEFAULT_SETTINGS",
+        "_HOST",
+        "printError",
+        "write",
+        "read",
+        "sleep"
+    ],
+    "Lua.runtime.builtin": {
+        "bit32": "enable",
+        "bit": "disable",
+        "utf8": "enable"
+    },
+    "Lua.diagnostics.disable": [
+        "undefined-field",
+        "deprecated"
+    ],
 }
